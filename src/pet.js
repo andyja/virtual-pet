@@ -28,6 +28,26 @@ function Pet(name) {
             this.hunger = MINIMUM_HUNGER;
         }
       }
+      Pet.prototype.checkup = function () {
+        const fitnessAlarm = (this.fitness <= 3)
+        const hungerAlarm = (this.hunger >= 5)
+
+        if (fitnessAlarm && hungerAlarm) {
+            return 'Woof, I am hungry AND I need a walk, woof'
+        }
+
+        if (fitnessAlarm) {
+            return 'Woof, I need a walk, woof'
+        }
+
+        if (hungerAlarm) {
+            return 'Woof, I am hungry, woof'
+        }
+
+        if (!fitnessAlarm && !hungerAlarm) {
+            return 'Woof, I feel great, woof'
+        }
+      }
 
   
 module.exports = Pet;
