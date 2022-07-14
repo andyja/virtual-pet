@@ -28,7 +28,7 @@ function Pet(name) {
             this.hunger = MINIMUM_HUNGER;
         }
       }
-      Pet.prototype.checkup = function () {
+      Pet.prototype.checkUp = function () {
         const fitnessAlarm = (this.fitness <= 3)
         const hungerAlarm = (this.hunger >= 5)
 

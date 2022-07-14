@@ -66,3 +66,48 @@ it('decreases hunger to a minimum of 0', () => {
 
   expect(pet.hunger).toEqual(0);
 });
+describe('checkUp', () => {
+
+  it('asks to be walked if fitness has triggered fitness alarm', () => {
+    const pet = new Pet('Fido');
+
+    pet.fitness = 3;
+
+    pet.checkUp();
+
+    expect(pet.checkUp()).toEqual('Woof, I need a walk, woof');
+
+  });
+  it('asks to be fed if hunger has triggered hunger alarm', () => {
+    const pet = new Pet('Fido');
+
+    pet.hunger = 5;
+
+    pet.checkUp();
+
+    expect(pet.checkUp()).toEqual('Woof, I am hungry, woof');
+
+  });
+  it('asks to be fed and walked if hunger has triggered hunger alarm and fitness has triggered fitness alarm', () => {
+    const pet = new Pet('Fido');
+
+    pet.hunger = 5;
+    pet.fitness = 3;
+
+    pet.checkUp();
+
+    expect(pet.checkUp()).toEqual('Woof, I am hungry AND I need a walk, woof');
+
+  });
+  it('checks if all is ok', () => {
+    const pet = new Pet('Fido');
+
+    pet.hunger = 4;
+    pet.fitness = 4;
+
+    pet.checkUp();
+
+    expect(pet.checkUp()).toEqual('Woof, I feel great, woof');
+
+  });
+})
